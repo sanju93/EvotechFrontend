@@ -1,10 +1,11 @@
 .ViewContainer{
-    height : 100vh;
+    height : auto;
     width : 100vw;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-content: space-around;
+    
+
 }
 
 .ViewContainer h1{
@@ -18,9 +19,42 @@
     border : 3px solid black;
     padding-left: 5%;
     border-radius: 10px;
+    margin-top: 5%;
    
 }
 
 .ViewContainer .child p{
     font-weight: 600;
+}
+
+@media only screen and (min-width : 0px) and (max-width : 500px){
+    .ViewContainer{
+        height : auto;
+        width : 100vw;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+    
+    }
+    
+    .ViewContainer h1{
+        margin : 0;
+        
+    }
+    
+    .ViewContainer .child{
+        height: 45%;
+        width : 80%;
+        border : 3px solid black;
+        padding-left: 5%;
+        border-radius: 10px;
+        margin-top: 5%;
+       
+    }
+    
+    .ViewContainer .child p{
+        font-weight: 600;
+    }
+    
 }
