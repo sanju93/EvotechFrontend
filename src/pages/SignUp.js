@@ -1,6 +1,8 @@
 import style from "../assets/styles/survey.module.css";
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import {toast} from 'react-toastify';
 
 function SignUp() {
   let [email,setEmail] = useState("");
@@ -8,8 +10,31 @@ function SignUp() {
   let [password,setPassword] = useState("");
   let navigate = useNavigate();
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
+
+    try{
+      let res = await axios({
+        method : 'POST',
+        url : `${url}/users/register`,
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        data : {name,email,password}
+
+      });
+
+      if (res.status === 201){
+        toast.success("User Registered Successfully");
+        navigate('/');
+      }
+    }catch(err){
+      toast.error('Something getting error in creatinfg the account');
+    }
+
+    setEmail("");
+    setName("");
+    setPassword("");
    
   }
 
