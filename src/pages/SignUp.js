@@ -3,6 +3,7 @@ import {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {toast} from 'react-toastify';
+import {url} from '../utils/constant';
 
 function SignUp() {
   let [email,setEmail] = useState("");
@@ -29,7 +30,15 @@ function SignUp() {
         navigate('/');
       }
     }catch(err){
-      toast.error('Something getting error in creatinfg the account');
+      if (err.response.status === 402){
+        toast.info("User is already there");
+        navigate('/');
+      }
+
+      if(err.response.status === 500){
+        toast.error('Something getting error in creating the account');
+      }
+      
     }
 
     setEmail("");
