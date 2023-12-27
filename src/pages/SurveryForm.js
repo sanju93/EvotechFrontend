@@ -50,6 +50,12 @@ function Survey() {
     setMessage("");
   }
 
+
+  function handleLogout(){
+    localStorage.removeItem('token');
+    navigate('/');
+  }
+
   return (
     <>
       <div className={style.SurveyContainer}>
@@ -126,6 +132,7 @@ function Survey() {
 
           <input type="submit" value={"submit"} />
           <button onClick={() => navigate("/viewForms")}>View Forms</button>
+          <button onClick = {handleLogout}>Logout</button>
         </form>
       </div>
     </>

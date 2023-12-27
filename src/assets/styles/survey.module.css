@@ -24,6 +24,10 @@ body{
      align-items: center;
  
 }
+
+.left p{
+    font-weight: 600
+}
 .surveyForm{
     height : 50%;
     width : 50%;
@@ -54,7 +58,7 @@ body{
     height: 10%;
     cursor: pointer;
     margin-top: 10%;
-    margin-left : -20%;
+    margin-left : -40%;
     background-color: green;
     color : white;
     border : none;
@@ -74,4 +78,6 @@ body{
     border-radius: 5px;
     font-size: large;
 }
+
+
 
